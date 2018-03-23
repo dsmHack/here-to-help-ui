@@ -3,19 +3,26 @@
     <div class="col-12">
       <br/>
       <h5 class="text-center">Welcome, [[firstName]]!</h5>
-      <br/>
     </div>
   </div>
+  <br/>
   <app-organization-selected-item [organization]="organization"></app-organization-selected-item>
+  <br/>
   <div class="row">
     <div class="col-12">
-      <div style="height: 25px"></div>
-      <h4 class="text-center">Select a Project</h4>
-      <div style="height: 25px"></div>
-    </div>
-    <div class="col-12">
-      <app-project-item *ngFor="let project of projects" [project]="project"></app-project-item>
+      <div class="card">
+        <h5 class="card-header">Select a Project</h5>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <app-project-item *ngFor="let project of projects" [project]="project" (click)="setSelectedProject(project)"></app-project-item>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <br/>
+  <app-check-in-out-widget [project]="selectedProject"></app-check-in-out-widget>
 </div>
 

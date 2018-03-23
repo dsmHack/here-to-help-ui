@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   organization: Organization;
   projects: Array<Project>;
+  selectedProject: Project;
 
   constructor() {
 
@@ -32,6 +33,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  setSelectedProject(project) {
+    this.selectedProject = project;
   }
 
 }
