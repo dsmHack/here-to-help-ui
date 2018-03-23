@@ -1,7 +1,12 @@
-<form class="align-content-center">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<form class="form-signin center">
+  <div class="text-center mb-4">
+    <h1 class="font-weight-normal">Welcome!</h1>
+    <p>Please enter your email below to log in.</p>
   </div>
-  <button type="submit" class="btn btn-primary btn-block">Login via Magic Email</button>
+
+  <div class="form-label-group">
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputEmail">Email address</label>
+  </div>
+  <button class="btn btn-primary btn-block" type="submit">Send Magic Link</button>
 </form>
