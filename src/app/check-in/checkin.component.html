@@ -1,0 +1,24 @@
+<div class="col">
+  <div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select Your Project</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button class="dropdown-item">Planting Bamboo</button>
+      <button class="dropdown-item">Respect the Wood!</button>
+      <button class="dropdown-item">Are we there yet!</button>
+    </div>
+  </div>
+</div>
+<p>Simple datepicker</p>
+
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+
+<hr/>
+
+<button class="btn btn-sm btn-outline-primary" (click)="selectToday()">Select Today</button>
+<button class="btn btn-sm btn-outline-primary" (click)="dp.navigateTo()">To current month</button>
+<button class="btn btn-sm btn-outline-primary" (click)="dp.navigateTo({year: 2013, month: 2})">To Feb 2013</button>
+
+<hr/>
+
+<pre>Month: {{ date.month }}.{{ date.year }}</pre>
+<pre>Model: {{ model | json }}</pre>
