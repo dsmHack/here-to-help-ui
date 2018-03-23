@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-	"../node_modules/bootstrap/dist/css/bootstrap.min.css",      
+	"../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.css"
       ],
       "scripts": [],
@@ -38,7 +38,10 @@
   "lint": [
     {
       "project": "src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
+      "exclude": [
+        "**/node_modules/**",
+        "**/src/swagger/**"
+        ]
     },
     {
       "project": "src/tsconfig.spec.json",
