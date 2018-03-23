@@ -8,7 +8,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "swagger-codegen": "swagger-codegen generate -i https://raw.githubusercontent.com/dsmHack/2018_team_1_api/master/swagger.yaml -l typescript-angular -o $(pwd)/src/swagger"
   },
   "private": true,
   "dependencies": {
