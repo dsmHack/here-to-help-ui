@@ -10,6 +10,7 @@ import { OrganizationComponent } from './organization/organization.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
+import { OrganizationItemComponent } from './organization-item/organization-item.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ProjectItemComponent } from './project-item/project-item.component';
     HomeComponent,
     LoginComponent,
     OrganizationComponent,
+    OrganizationItemComponent,
     NavbarComponent,
     FooterComponent,
     ProjectItemComponent
