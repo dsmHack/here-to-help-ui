@@ -1,21 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <p class="text-center">Welcome, [[firstName]]!</p>
+      <br/>
+      <h5 class="text-center">Welcome, [[firstName]]!</h5>
+      <br/>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <p class="text-center">Current org goes here...</p>
-    </div>
-  </div>
+  <app-organization-selected-item [organization]="organization"></app-organization-selected-item>
   <div class="row">
     <div class="col-12">
       <div style="height: 25px"></div>
       <h4 class="text-center">Select a Project</h4>
       <div style="height: 25px"></div>
     </div>
-    <div class="col-12" >
+    <div class="col-12">
       <app-project-item *ngFor="let project of projects" [project]="project"></app-project-item>
     </div>
   </div>

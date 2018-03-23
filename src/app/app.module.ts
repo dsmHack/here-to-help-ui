@@ -9,6 +9,7 @@ import {LoginComponent} from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
+import { OrganizationSelectedItemComponent } from './organization-selected-item/organization-selected-item.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ProjectItemComponent } from './project-item/project-item.component';
     LoginComponent,
     NavbarComponent,
     FooterComponent,
-    ProjectItemComponent
+    ProjectItemComponent,
+    OrganizationSelectedItemComponent
   ],
   imports: [
     BrowserModule,
