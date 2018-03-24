@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-12">
+    <div style="height: 25px"></div>
+    <h4 class="text-center">Manage Project</h4>
+    <div style="height: 25px"></div>
+  </div>
+  <div class="col-12">
+    <p>
+      <label class="col-12">Name</label>
+      <input type="text" class="col-12 form-control" [(ngModel)]="project.name">
+    </p>
+    <p>
+      <label class="col-12">Description</label>
+      <input type="text" class="col-12 form-control" [(ngModel)]="project.description">
+    </p>
+    <p>
+      <label class="col-12">Start Date</label>
+      <input class="col-12 form-control" [ngModel]="project.startDate | date:'yyyy-MM-dd'" 
+        (ngModelChange)="project.startDate = $event" 
+        type="date" 
+        name="startDate"/>
+    </p>
+    <p>
+      <label class="col-12">End Date</label>
+      <input class="col-12 form-control" [ngModel]="project.endDate | date:'yyyy-MM-dd'" 
+        (ngModelChange)="project.endDate = $event" 
+        type="date" 
+        name="endDate"/>
+    </p>
+    <p>
+      <button class="btn btn-primary" (click)="saveProject()">Save</button>
+    </p>
+  </div>
+</div> 

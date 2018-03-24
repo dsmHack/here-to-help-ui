@@ -20,6 +20,8 @@ import { LoginConfirmComponent } from './login-confirm/login-confirm.component';
 import {FormsModule} from "@angular/forms";
 import { ReportingComponent } from './reporting/reporting.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
+import { ProjectAdminComponent } from './project-admin/project-admin.component';
+import { ProjectAdminRecordComponent } from './project-admin-record/project-admin-record.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { UserAdminComponent } from './user-admin/user-admin.component';
     CheckInOutWidgetComponent,
     LoginConfirmComponent,
     ReportingComponent,
-    UserAdminComponent
+    UserAdminComponent,
+    ProjectAdminComponent,
+    ProjectAdminRecordComponent
   ],
   imports: [
     BrowserModule,
