@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {Organization} from '../../swagger';
 
 @Component({
-  selector: 'org-list',
+  selector: 'app-org-list',
   templateUrl: './organization.component.html',
   styleUrls: ['./organization.component.css']
 })
 export class OrganizationComponent implements OnInit {
 
-  orgs:Array<Organization>;
+  orgs: Array<Organization>;
 
   constructor() {
-    const org1: Organization =
-      {
+    const org1: Organization = {
         name: 'Name1',
         organizationId: '123',
         description: 'My Description',
@@ -23,8 +22,7 @@ export class OrganizationComponent implements OnInit {
         twitterUrl: 'twitter.com',
         instagramUrl: 'instagram.com'
       };
-    const org2: Organization =
-      {
+    const org2: Organization = {
         name: 'Name2',
         organizationId: '123',
         description: 'My Description',
@@ -34,9 +32,9 @@ export class OrganizationComponent implements OnInit {
         facebookUrl: 'fb.com',
         twitterUrl: 'twitter.com',
         instagramUrl: 'instagram.com'
-      }
+      };
 
-    this.orgs = [org1,org2];
+    this.orgs = [org1, org2];
   }
 
   ngOnInit() {

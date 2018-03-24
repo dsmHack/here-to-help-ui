@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
 import {Organization} from '../../swagger';
 import {DefaultService} from '../../swagger';
 
@@ -10,7 +10,7 @@ import {DefaultService} from '../../swagger';
   providers: [DefaultService]
 })
 export class OrganizationProfileComponent implements OnInit {
-  orgs:Array<Organization>;
+  orgs: Array<Organization>;
   org = <Organization>{};
 
   constructor(private route: ActivatedRoute, private service: DefaultService) {
@@ -19,7 +19,8 @@ export class OrganizationProfileComponent implements OnInit {
     this.org = <Organization>{
         name: 'Amanda the Panda!',
         organizationId: '123',
-        description: 'Our Mission is to provide innovative grief support services that promote hope and healing to individuals, children, and families',
+        description: 'Our Mission is to provide innovative grief support services ' +
+        'that promote hope and healing to individuals, children, and families',
         email: 'you@gmail.com',
         phoneNumber: '208 393 4192',
         websiteUrl: 'www.google.com',
