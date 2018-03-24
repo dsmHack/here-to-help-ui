@@ -2,18 +2,37 @@
 <div class="row ">
   <div class="col-12 card">
     <div class="card-body">
-      <h5 class="card-title">{{org.name}}</h5>
-      <p class="card-subtitle mb-2 text-muted">{{org.description}}</p>
+      <div *ngIf="!showProfile">
+        <h5 class="card-title">{{org.name}}</h5>
+        <p class="card-subtitle mb-2 text-muted">{{org.description}}</p>
+      </div>
       <div class="card-text" *ngIf="showProfile">
+        <table class="table-borderless">
+          <tr class="d-sm-table-row">
+            <td  style="margin-top: 10px">
+              <h5 class="card-title">Image</h5>
+            </td>
+            <td style="margin-top: 10px">
+              <h5 class="card-title">{{org.name}}</h5>
+            </td>
+          </tr>
+        </table>
+        <p class="card-text">{{org.description}}</p>
+
         <table class="table table-borderless">
           <td class="row">
-            <div class="col-lg-6">{{org.websiteUrl}}</div>
-            <div class="col-lg-6">
+            <div class="col-sm-9" style="margin-top: 10px">
+
+              {{org.address1}}<br>
+              {{org.city}} {{org.state}} {{org.zip}}
+
+            </div>
+            <div class="col-sm-3" style="margin-top: 10px">
               Follow Us:
               <ul class="list-inline">
-                <li class="list-inline-item"><a href="{{org.facebookUrl}}"><i class="fa fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="{{org.twitterUrl}}"><i class="fa fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="{{org.instagramUrl}}"><i class="fa fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a class="badge-light" href="{{org.facebookUrl}}"><i class="fa fa-facebook fa-2x"></i></a></li>
+                <li class="list-inline-item"><a class="badge-light" href="{{org.twitterUrl}}"><i class="fa fa-twitter  fa-2x"></i></a></li>
+                <li class="list-inline-item"><a class="badge-light" href="{{org.instagramUrl}}"><i class="fa fa-instagram  fa-2x"></i></a></li>
               </ul>
             </div>
           </td>
