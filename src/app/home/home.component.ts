@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Organization, Project, User} from '../../swagger';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,19 @@ import {Organization, Project, User} from '../../swagger';
 })
 export class HomeComponent implements OnInit {
 
+  organizationId: string;
   organization: Organization;
   projects: Array<Project>;
   selectedProject: Project;
   user: User;
 
-  constructor() {
+  constructor(private router: Router) {
+    const orgId = localStorage.getItem('organizationId');
+    if (orgId) {
+      this.organizationId = orgId;
+    } else {
+      router.navigate(['orgs']);
+    }
 
     this.organization = {
       name: 'Amanda the Panda',

@@ -10,10 +10,15 @@ import {DefaultService} from '../../swagger';
   providers: [DefaultService]
 })
 export class OrganizationProfileComponent implements OnInit {
+  organizationId: string;
   org: Organization
 
-  constructor(private route: ActivatedRoute, private service: DefaultService) {
-    this.service.organizationsGet().subscribe(x => this.org = x[0]);
+  constructor(private route: ActivatedRoute, private apiService: DefaultService) {
+    const orgId = localStorage.getItem('organizationId');
+    if (orgId) {
+      this.organizationId = orgId;
+      this.apiService.organizationsOrganizationIdGet(this.organizationId).subscribe(x => this.org = x);
+    }
 
     // this.org = <Organization>{
     //     name: 'Amanda the Panda!',

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   sendMagicLink() {
     this.loginStatus = 2;
     setTimeout(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login-confirm']);
     }, 2500);
   }
 }
