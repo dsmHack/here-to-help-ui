@@ -1,7 +1,7 @@
 <h2 class="text-center">Volunteer Hour Reports</h2>
-<h3 class="text-center">[[Org Name]]</h3>
+<h3 class="text-center">{{organization.name}}</h3>
 
-<div class="table-responsive">
+<div class="table-responsive" *ngIf="reportData">
   <table class="table table-striped">
     <thead>
     <tr>
