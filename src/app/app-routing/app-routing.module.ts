@@ -7,6 +7,7 @@ import {HomeComponent} from '../home/home.component';
 import {LoginConfirmComponent} from "../login-confirm/login-confirm.component";
 import {ReportingComponent} from "../reporting/reporting.component";
 import {UserAdminComponent} from "../user-admin/user-admin.component";
+import {UserAdminRecordComponent} from "../user-admin-record/user-admin-record.component";
 
 const routes: Routes = [
   {
@@ -36,6 +37,14 @@ const routes: Routes = [
   {
     path: 'user-admin',
     component: UserAdminComponent
+  },
+  {
+    path: 'user-admin/add',
+    component: UserAdminRecordComponent
+  },
+  {
+    path: 'user-admin/edit/:id',
+    component: UserAdminRecordComponent
   }
 ];
 
