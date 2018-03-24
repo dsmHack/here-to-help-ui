@@ -11,6 +11,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { OrganizationItemComponent } from './organization-item/organization-item.component';
+import { OrganizationSelectedItemComponent } from './organization-selected-item/organization-selected-item.component';
+import { CheckInOutWidgetComponent } from './check-in-out-widget/check-in-out-widget.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { OrganizationItemComponent } from './organization-item/organization-item
     OrganizationItemComponent,
     NavbarComponent,
     FooterComponent,
-    ProjectItemComponent
+    ProjectItemComponent,
+    OrganizationSelectedItemComponent,
+    CheckInOutWidgetComponent
   ],
   imports: [
     BrowserModule,
