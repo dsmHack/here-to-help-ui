@@ -5,6 +5,8 @@
     <div style="height: 25px"></div>
   </div>
   <div class="col-12" >
-    <app-org-item *ngFor="let org of orgs" [org]="org"></app-org-item>
+    <a *ngFor="let org of orgs" (click)="selectOrg(org)">
+      <app-org-item [org]="org"></app-org-item>
+    </a>
   </div>
 </div>
