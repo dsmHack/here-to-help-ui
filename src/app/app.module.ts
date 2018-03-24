@@ -11,6 +11,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { OrganizationItemComponent } from './organization-item/organization-item.component';
+import {ApiModule, BASE_PATH} from '../swagger';
+import {environment} from '../environments/environment';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -27,9 +30,11 @@ import { OrganizationItemComponent } from './organization-item/organization-item
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    ApiModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: BASE_PATH, useValue: environment.API_BASE_PATH }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
