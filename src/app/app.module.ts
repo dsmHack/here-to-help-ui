@@ -20,6 +20,7 @@ import { LoginConfirmComponent } from './login-confirm/login-confirm.component';
 import {FormsModule} from "@angular/forms";
 import { ReportingComponent } from './reporting/reporting.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
+import { UserAdminRecordComponent } from './user-admin-record/user-admin-record.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { UserAdminComponent } from './user-admin/user-admin.component';
     CheckInOutWidgetComponent,
     LoginConfirmComponent,
     ReportingComponent,
-    UserAdminComponent
+    UserAdminComponent,
+    UserAdminRecordComponent
   ],
   imports: [
     BrowserModule,
