@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from "@angular/router";
 import {Organization} from '../../swagger';
 import {DefaultService} from '../../swagger';
 
@@ -13,11 +13,15 @@ export class OrganizationProfileComponent implements OnInit {
   organizationId: string;
   org: Organization
 
-  constructor(private route: ActivatedRoute, private apiService: DefaultService) {
+  constructor(private route: ActivatedRoute,
+              private apiService: DefaultService,
+              private router: Router) {
     const orgId = localStorage.getItem('organizationId');
     if (orgId) {
       this.organizationId = orgId;
       this.apiService.organizationsOrganizationIdGet(this.organizationId).subscribe(x => this.org = x);
+    } else {
+      router.navigate(['orgs']);
     }
   }
 
