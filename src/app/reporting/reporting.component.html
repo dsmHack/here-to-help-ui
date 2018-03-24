@@ -1,37 +1,29 @@
 <h2 class="text-center">Volunteer Hour Reports</h2>
-<h3 class="text-center">[[Org Name]]</h3>
+<h3 class="text-center">{{organization.name}}</h3>
 
-<table class="table table-striped table-responsive">
-  <thead>
-  <tr>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
-    <th scope="col">Email</th>
-    <th scope="col">PROJECT</th>
-    <th scope="col">Total Hours</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th scope="row">FN</th>
-    <th scope="row">LN</th>
-    <th scope="row">Email</th>
-    <td>0</td>
-    <td>0</td>
-  </tr>
-  <tr>
-    <th scope="row"FN></th>
-    <th scope="row">LN</th>
-    <th scope="row">Email</th>
-    <td>0</td>
-    <td>0</td>
-  </tr>
-  <tr>
-    <th scope="row"FN></th>
-    <th scope="row">LN</th>
-    <th scope="row">Email</th>
-    <td>0</td>
-    <td>0</td>
-  </tr>
-  </tbody>
-</table>
+<div class="table-responsive" *ngIf="reportData">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col" *ngFor="let project of reportData.projects">{{project.name}}</th>
+      <th scope="col">Total Hours</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of reportData.users">
+      <th scope="row">{{user.firstName}}</th>
+      <th scope="row">{{user.lastName}}</th>
+      <td *ngFor="let up of user.projects">{{up.totalHours}}</td>
+      <td>{{user.totalHours}}</td>
+    </tr>
+    <tr>
+      <th scope="row" colspan="2">TOTAL</th>
+      <td *ngFor="let project of reportData.projects">{{project.totalHours}}</td>
+      <td>{{reportData.totalHours}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
