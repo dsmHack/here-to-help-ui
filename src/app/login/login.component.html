@@ -9,14 +9,14 @@
           <h2 class="font-weight-normal">Welcome!</h2>
         </div>
         <div id="login-button" *ngIf="loginStatus === 0">
-          <button class="btn btn-lg btn-primary btn-block text-center" (click)="clickLogin()">Log In</button>
+          <button class="btn btn-lg btn-success btn-block text-center" (click)="clickLogin()">Log In</button>
         </div>
         <div *ngIf="loginStatus === 1">
           <p class="text-center">Please enter your email below to log in.</p>
           <div class="form-group">
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" [(ngModel)]="loginEmail" required autofocus>
           </div>
-          <button class="btn btn-primary btn-block" (click)="sendMagicLink()" [disabled]="!loginEmail">Send Magic Link</button>
+          <button class="btn btn-success btn-block" (click)="sendMagicLink()" [disabled]="!loginEmail">Send Magic Link</button>
         </div>
         <div id="confirmation" *ngIf="loginStatus === 2">
           <h3>Just a second...</h3>
