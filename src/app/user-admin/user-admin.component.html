@@ -12,9 +12,9 @@
 </thead>
 <tbody>
   <tr *ngFor="let user of users">
-    <td>{{user.firstName}}</td>
-    <td>{{user.lastName}}</td>
-    <td>{{user.email}}</td>
+    <td scope="row">{{user.firstName}}</td>
+    <td scope="row">{{user.lastName}}</td>
+    <td scope="row">{{user.email}}</td>
     <button class="btn editBtn" [routerLink]="['/user-admin/edit/', user.userId]">Edit</button>
   </tr>
 </tbody>
