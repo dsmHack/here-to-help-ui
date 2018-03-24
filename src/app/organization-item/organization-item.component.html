@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="row ">
   <div class="col-12 card">
     <div class="card-body">
@@ -6,8 +7,15 @@
       <div class="card-text" *ngIf="showProfile">
         <table class="table table-borderless">
           <td class="row">
-            <div class="col-lg-6">{{org.facebookUrl}}</div>
-            <div class="col-lg-6">{{org.facebookUrl}}</div>
+            <div class="col-lg-6">{{org.websiteUrl}}</div>
+            <div class="col-lg-6">
+              Follow Us:
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="{{org.facebookUrl}}"><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="{{org.twitterUrl}}"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="{{org.instagramUrl}}"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
           </td>
         </table>
 

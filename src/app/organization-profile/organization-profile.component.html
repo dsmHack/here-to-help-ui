@@ -1,8 +1,4 @@
-<p class="lead">
-  Welcome Reddy!
-</p>
-
-<div class="col-12" >
+<div class="col-12" *ngIf="org">
   <app-org-item [org]="org" [showProfile]="true"></app-org-item>
   <div class="btn-group-vert">
     <a class="btn btn-light btn-block text-center" href="{{org.websiteUrl}}" target="_blank">Visit Website</a>
