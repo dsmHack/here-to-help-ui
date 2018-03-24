@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router, RoutesRecognized} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  showNav: boolean;
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
+    this.router.events.subscribe(x => {
+      if (x instanceof RoutesRecognized) {
+        const path = x.url;
+        switch (path) {
+          case '/login':
+            this.showNav = false;
+            break;
+          default:
+            this.showNav = true;
+        }
+      }
+    });
   }
 
 }
