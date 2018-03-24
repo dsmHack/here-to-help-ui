@@ -38,4 +38,12 @@
 .btn-warning:disabled {
   background-color: #707070;
   border-color: #707070;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+  
+body {
+  padding-bottom: 60px;
 }
