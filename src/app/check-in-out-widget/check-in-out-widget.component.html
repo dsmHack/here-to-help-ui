@@ -1,10 +1,18 @@
 <div class="row">
   <div class="col-12">
     <div class="card">
-      <h5 class="card-header">Get Started</h5>
+      <h5 class="card-header">Check In</h5>
       <div class="card-body">
-        <h5 class="card-title text-center">[[Project Name]]</h5>
-        <button class="btn-lg btn-block btn-success">Check In</button>
+        <h5 class="card-title text-center">{{project.name}}</h5>
+        <div *ngIf="!checkInDate">
+          <button class="btn-lg btn-block btn-success" (click)="checkIn()">Check Me In!</button>
+          <button class="btn btn-sm btn-block btn-warning" (click)="switchProjects()">Switch Projects</button>
+        </div>
+        <div *ngIf="checkInDate">
+          <p>Checked in at {{checkInDate | date:'shortTime'}}</p>
+          <h5>Duration [[]]</h5>
+          <button class="btn-lg btn-block btn-danger" (click)="checkOut()">Check Out</button>
+        </div>
       </div>
     </div>
   </div>

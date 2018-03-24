@@ -13,8 +13,6 @@ export class ProjectItemComponent implements OnInit {
   @Input()
   project: Project;
 
-  @HostListener('click')
-
   ngOnInit() {
   }
 

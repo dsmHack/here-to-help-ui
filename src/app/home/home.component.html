@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-12">
       <br/>
-      <h5 class="text-center">Welcome, [[firstName]]!</h5>
+      <h5 class="text-center">Welcome, {{user.firstName}}!</h5>
     </div>
   </div>
   <br/>
   <app-organization-selected-item [organization]="organization"></app-organization-selected-item>
   <br/>
-  <div class="row">
+  <div class="row" *ngIf="!selectedProject">
     <div class="col-12">
       <div class="card">
         <h5 class="card-header">Select a Project</h5>
@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <br/>
-  <app-check-in-out-widget [project]="selectedProject"></app-check-in-out-widget>
+  <br *ngIf="!selectedProject"/>
+  <app-check-in-out-widget [project]="selectedProject" (deselectProject)="clearSelectedProject()" *ngIf="selectedProject"></app-check-in-out-widget>
 </div>
 

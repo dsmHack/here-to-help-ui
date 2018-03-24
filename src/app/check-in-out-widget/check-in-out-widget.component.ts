@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Project} from '../../swagger';
 
 @Component({
@@ -13,7 +13,37 @@ export class CheckInOutWidgetComponent implements OnInit {
   @Input()
   project: Project;
 
+  @Output()
+  deselectProject: EventEmitter<void> = new EventEmitter<void>();
+
+  checkInDate: Date;
+  checkOutDate: Date;
+
   ngOnInit() {
+  }
+
+  checkIn() {
+    const now = Date.now();
+    console.log('Check in for project!');
+    console.log(this.project);
+    console.log(now);
+
+    this.checkInDate = new Date(now);
+  }
+
+  switchProjects() {
+    this.deselectProject.emit();
+  }
+
+  checkOut() {
+    const now = Date.now();
+    console.log('Check out for project');
+    console.log(this.project);
+    console.log(now);
+
+    this.checkOutDate = new Date(now);
+
+    this.switchProjects();
   }
 
 }

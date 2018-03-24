@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Organization, Project } from '../../swagger';
+import {Organization, Project, User} from '../../swagger';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   organization: Organization;
   projects: Array<Project>;
   selectedProject: Project;
+  user: User;
 
   constructor() {
 
@@ -30,6 +31,14 @@ export class HomeComponent implements OnInit {
       {projectId: '1', name: 'Project #1', description: 'the first project', startDate: new Date(), endDate: new Date()},
       {projectId: '2', name: 'Project #2', description: 'the second project', startDate: new Date(), endDate: new Date()}
     ];
+
+    this.user = {
+      userId: '1',
+      email: 'user@dsmhack.org',
+      firstName: 'Amanda',
+      lastName: 'Test-User',
+      role: 'user'
+    };
   }
 
   ngOnInit() {
@@ -37,6 +46,10 @@ export class HomeComponent implements OnInit {
 
   setSelectedProject(project) {
     this.selectedProject = project;
+  }
+
+  clearSelectedProject(event) {
+    this.selectedProject = null;
   }
 
 }
