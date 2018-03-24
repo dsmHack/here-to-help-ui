@@ -1,29 +1,33 @@
 <div id="outer">
-  <div class="form-signin center" id="login-form">
-    <div class="text-center mb-4">
-      <h1 class="font-weight-normal">Here to Help</h1>
+  <div class="row">
+    <div class="col-12 text-center">
+      <img src="../../assets/Here-to-help-200px.png" class="align-items-center" height="70" width="191"/>
     </div>
-    <div *ngIf="loginStatus === 0">
-      <h2 class="font-weight-normal text-center">Welcome!</h2>
-      <p class="text-center">Please enter your login code below to complete your log in.</p>
-    </div>
-    <div *ngIf="loginStatus === 1">
-      <h2 class="font-weight-normal text-center">Just a moment...</h2>
-      <p class="text-center">We're verifying your login code.</p>
-    </div>
-    <div *ngIf="loginStatus === 2">
-      <h2 class="font-weight-normal text-center">You're In!</h2>
-      <p class="text-center">Next, you'll select your organization.</p>
-    </div>
-    <div *ngIf="loginStatus === 3">
-      <h2 class="font-weight-normal text-center">Uh oh...</h2>
-      <p class="text-center">Looks like you entered an incorrect login code. Try again!</p>
-    </div>
-    <div *ngIf="loginStatus === 0 || loginStatus === 3">
-      <div class="form-group">
-        <input type="text" id="inputToken" class="form-control" [(ngModel)]="token" placeholder="Login Code" required autofocus>
+    <div class="col-12">
+      <div class="form-signin center" id="login-form">
+        <div *ngIf="loginStatus === 0">
+          <h2 class="font-weight-normal text-center">Welcome!</h2>
+          <p class="text-center">Please enter your login code below to complete your log in.</p>
+        </div>
+        <div *ngIf="loginStatus === 1">
+          <h2 class="font-weight-normal text-center">Just a moment...</h2>
+          <p class="text-center">We're verifying your login code.</p>
+        </div>
+        <div *ngIf="loginStatus === 2">
+          <h2 class="font-weight-normal text-center">You're In!</h2>
+          <p class="text-center">Next, you'll select your organization.</p>
+        </div>
+        <div *ngIf="loginStatus === 3">
+          <h2 class="font-weight-normal text-center">Uh oh...</h2>
+          <p class="text-center">Looks like you entered an incorrect login code. Try again!</p>
+        </div>
+        <div *ngIf="loginStatus === 0 || loginStatus === 3">
+          <div class="form-group">
+            <input type="text" id="inputToken" class="form-control" [(ngModel)]="token" placeholder="Login Code" required autofocus>
+          </div>
+          <button class="btn btn-success btn-block" (click)="verifyToken()" [disabled]="!token">Verify Login Code</button>
+        </div>
       </div>
-      <button class="btn btn-primary btn-block" (click)="verifyToken()" [disabled]="!token">Verify Login Code</button>
     </div>
   </div>
 </div>

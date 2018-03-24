@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {DefaultService} from "../../swagger";
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,9 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private apiService: DefaultService,
+              private dataService: DataService) { }
 
   loginStatus: number;
   loginEmail: string;
@@ -22,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   sendMagicLink() {
+    this.apiService.loginSendCodePost(this.loginEmail).subscribe();
     this.loginStatus = 2;
     setTimeout(() => {
       this.router.navigate(['/login-confirm']);

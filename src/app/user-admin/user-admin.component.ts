@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../swagger/model/user';
+import {DefaultService} from "../../swagger";
 
 @Component({
   selector: 'app-user-admin',
@@ -9,23 +10,25 @@ import { User } from '../../swagger/model/user';
 export class UserAdminComponent implements OnInit {
 
   users: Array<User>;
-  constructor() { }
+  constructor(private apiService: DefaultService) { }
 
   ngOnInit() {
-    const firstUser: User = {
-      firstName: 'John',
-      userId: '123',
-      role: 'Developer',
-      lastName: 'Doe',
-      email: 'johndoe@thisismyemail.com'
-    };
-    const anotherOne: User = {
-      firstName: 'Jane',
-      userId: '124',
-      role: 'Volunteer',
-      lastName: 'Janes',
-      email: 'janejanes@gmail.com'
-    };
-    this.users = [firstUser, anotherOne];
+    // const firstUser: User = {
+    //   firstName: 'John',
+    //   userId: '123',
+    //   role: 'Developer',
+    //   lastName: 'Doe',
+    //   email: 'johndoe@thisismyemail.com'
+    // };
+    // const anotherOne: User = {
+    //   firstName: 'Jane',
+    //   userId: '124',
+    //   role: 'Volunteer',
+    //   lastName: 'Janes',
+    //   email: 'janejanes@gmail.com'
+    // };
+    // this.users = [firstUser, anotherOne];
+
+
   }
 }

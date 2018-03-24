@@ -1,5 +1,7 @@
 <div class="col-12" *ngIf="org">
+  <br/>
   <app-org-item [org]="org" [showProfile]="true"></app-org-item>
+  <br/>
   <div class="btn-group-vert">
     <a class="btn btn-light btn-block text-center" href="{{org.websiteUrl}}" target="_blank">Visit Website</a>
     <a class="btn btn-light btn-block text-center" href="tel:{{org.phoneNumber}}">Call Us</a>

@@ -6,7 +6,7 @@
     </div>
   </div>
   <br/>
-  <app-organization-selected-item [organization]="organization"></app-organization-selected-item>
+  <app-organization-selected-item [organization]="organization" *ngIf="organization"></app-organization-selected-item>
   <br/>
   <div class="row" *ngIf="!selectedProject">
     <div class="col-12">

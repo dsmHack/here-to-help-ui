@@ -10,7 +10,6 @@
         </div>
         <div *ngIf="checkInDate">
           <p>Checked in at {{checkInDate | date:'shortTime'}}</p>
-          <h5>Duration [[]]</h5>
           <button class="btn-lg btn-block btn-danger" (click)="checkOut()">Check Out</button>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DefaultService, Organization, ReportOrganization} from "../../swagger";
 import {Router} from "@angular/router";
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-reporting',
@@ -14,10 +15,11 @@ export class ReportingComponent implements OnInit {
   reportData: any;
 
   constructor(private apiService: DefaultService,
-              private router: Router) { }
+              private router: Router,
+              private dataService: DataService) { }
 
   ngOnInit() {
-    const orgId = localStorage.getItem('organizationId');
+    const orgId = this.dataService.getOrganizationId();
     if (orgId) {
       this.organizationId = orgId;
       this.apiService.organizationsOrganizationIdGet(this.organizationId).subscribe(x => this.organization = x);
