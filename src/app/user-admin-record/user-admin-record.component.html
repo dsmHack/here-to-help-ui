@@ -1,3 +1,24 @@
-<p>
-  user-admin-record works!
-</p>
+<div class="row">
+  <div class="col-12">
+    <div style="height: 25px"></div>
+    <h4 class="text-center">Manage User</h4>
+    <div style="height: 25px"></div>
+  </div>
+  <div class="col-12">
+    <p>
+      <label class="col-2">First Name</label>
+      <input type="text" class="col-3" [(ngModel)]="user.firstName">
+    </p>
+    <p>
+      <label class="col-2">Last Name</label>
+      <input type="text" class="col-3" [(ngModel)]="user.lastName">
+    </p>
+    <p>
+      <label class="col-2">Email</label>
+      <input type="text" class="col-3" [disabled]="id" [(ngModel)]="user.email">
+    </p>
+    <p>
+      <button class="btn btn-primary" (click)="saveUser()">Save</button>
+    </p>
+  </div>
+</div>
