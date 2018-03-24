@@ -16,6 +16,10 @@ import { ProjectItemComponent } from './project-item/project-item.component';
 import { OrganizationItemComponent } from './organization-item/organization-item.component';
 import { OrganizationSelectedItemComponent } from './organization-selected-item/organization-selected-item.component';
 import { CheckInOutWidgetComponent } from './check-in-out-widget/check-in-out-widget.component';
+import { LoginConfirmComponent } from './login-confirm/login-confirm.component';
+import {FormsModule} from "@angular/forms";
+import { ReportingComponent } from './reporting/reporting.component';
+import { UserAdminComponent } from './user-admin/user-admin.component';
 
 
 @NgModule({
@@ -29,14 +33,18 @@ import { CheckInOutWidgetComponent } from './check-in-out-widget/check-in-out-wi
     FooterComponent,
     ProjectItemComponent,
     OrganizationSelectedItemComponent,
-    CheckInOutWidgetComponent
+    CheckInOutWidgetComponent,
+    LoginConfirmComponent,
+    ReportingComponent,
+    UserAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
     ApiModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [{ provide: BASE_PATH, useValue: environment.API_BASE_PATH }],
   bootstrap: [AppComponent]
