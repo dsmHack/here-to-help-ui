@@ -18,6 +18,8 @@ import { OrganizationSelectedItemComponent } from './organization-selected-item/
 import { CheckInOutWidgetComponent } from './check-in-out-widget/check-in-out-widget.component';
 import { LoginConfirmComponent } from './login-confirm/login-confirm.component';
 import {FormsModule} from "@angular/forms";
+import { ReportingComponent } from './reporting/reporting.component';
+import { UserAdminComponent } from './user-admin/user-admin.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {FormsModule} from "@angular/forms";
     ProjectItemComponent,
     OrganizationSelectedItemComponent,
     CheckInOutWidgetComponent,
-    LoginConfirmComponent
+    LoginConfirmComponent,
+    ReportingComponent,
+    UserAdminComponent
   ],
   imports: [
     BrowserModule,
