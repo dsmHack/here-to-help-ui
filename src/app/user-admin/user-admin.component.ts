@@ -12,4 +12,6 @@ export class UserAdminComponent implements OnInit {
   ngOnInit() {
   }
 
+  //This component will be used to list all existing users, and give buttons for add/edit users
+
 }
