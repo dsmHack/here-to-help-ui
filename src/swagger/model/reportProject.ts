@@ -11,7 +11,7 @@
  */
 
 
-export interface UserOrganization {
-    userId: string;
-    organizationId: string;
+export interface ReportProject {
+    name?: string;
+    totalHours?: number;
 }

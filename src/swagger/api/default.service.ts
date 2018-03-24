@@ -1,5 +1,5 @@
 /**
- * 
+ * Here to Help
  * This is a restful web service used to log hours for non-profits to submit for money grants.
  *
  * OpenAPI spec version: 1.0.0
@@ -18,7 +18,11 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
+import { CheckIn } from '../model/checkIn';
 import { Organization } from '../model/organization';
+import { Project } from '../model/project';
+import { ReportOrganization } from '../model/reportOrganization';
+import { User } from '../model/user';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -82,6 +86,275 @@ export class DefaultService {
         ];
 
         return this.httpClient.get<Array<Organization>>(`${this.basePath}/organizations`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param organizationId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public organizationsOrganizationIdGet(organizationId: string, observe?: 'body', reportProgress?: boolean): Observable<Organization>;
+    public organizationsOrganizationIdGet(organizationId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Organization>>;
+    public organizationsOrganizationIdGet(organizationId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Organization>>;
+    public organizationsOrganizationIdGet(organizationId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (organizationId === null || organizationId === undefined) {
+            throw new Error('Required parameter organizationId was null or undefined when calling organizationsOrganizationIdGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Organization>(`${this.basePath}/organizations/${encodeURIComponent(String(organizationId))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param organizationId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public organizationsOrganizationIdProjectsGet(organizationId: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Organization>>;
+    public organizationsOrganizationIdProjectsGet(organizationId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Organization>>>;
+    public organizationsOrganizationIdProjectsGet(organizationId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Organization>>>;
+    public organizationsOrganizationIdProjectsGet(organizationId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (organizationId === null || organizationId === undefined) {
+            throw new Error('Required parameter organizationId was null or undefined when calling organizationsOrganizationIdProjectsGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Array<Organization>>(`${this.basePath}/organizations/${encodeURIComponent(String(organizationId))}/projects`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param organizationId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public organizationsOrganizationIdReportsGet(organizationId: string, observe?: 'body', reportProgress?: boolean): Observable<ReportOrganization>;
+    public organizationsOrganizationIdReportsGet(organizationId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ReportOrganization>>;
+    public organizationsOrganizationIdReportsGet(organizationId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ReportOrganization>>;
+    public organizationsOrganizationIdReportsGet(organizationId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (organizationId === null || organizationId === undefined) {
+            throw new Error('Required parameter organizationId was null or undefined when calling organizationsOrganizationIdReportsGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<ReportOrganization>(`${this.basePath}/organizations/${encodeURIComponent(String(organizationId))}/reports`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public projectsGet(observe?: 'body', reportProgress?: boolean): Observable<Array<Project>>;
+    public projectsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Project>>>;
+    public projectsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Project>>>;
+    public projectsGet(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Array<Project>>(`${this.basePath}/projects`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param projectId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public projectsProjectIdCheckInsGet(projectId: string, observe?: 'body', reportProgress?: boolean): Observable<Array<CheckIn>>;
+    public projectsProjectIdCheckInsGet(projectId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<CheckIn>>>;
+    public projectsProjectIdCheckInsGet(projectId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<CheckIn>>>;
+    public projectsProjectIdCheckInsGet(projectId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (projectId === null || projectId === undefined) {
+            throw new Error('Required parameter projectId was null or undefined when calling projectsProjectIdCheckInsGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Array<CheckIn>>(`${this.basePath}/projects/${encodeURIComponent(String(projectId))}/check-ins`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param projectId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public projectsProjectIdGet(projectId: string, observe?: 'body', reportProgress?: boolean): Observable<Project>;
+    public projectsProjectIdGet(projectId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Project>>;
+    public projectsProjectIdGet(projectId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Project>>;
+    public projectsProjectIdGet(projectId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (projectId === null || projectId === undefined) {
+            throw new Error('Required parameter projectId was null or undefined when calling projectsProjectIdGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Project>(`${this.basePath}/projects/${encodeURIComponent(String(projectId))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param projectId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public projectsProjectIdUsersGet(projectId: string, observe?: 'body', reportProgress?: boolean): Observable<Array<User>>;
+    public projectsProjectIdUsersGet(projectId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<User>>>;
+    public projectsProjectIdUsersGet(projectId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<User>>>;
+    public projectsProjectIdUsersGet(projectId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (projectId === null || projectId === undefined) {
+            throw new Error('Required parameter projectId was null or undefined when calling projectsProjectIdUsersGet.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Array<User>>(`${this.basePath}/projects/${encodeURIComponent(String(projectId))}/users`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

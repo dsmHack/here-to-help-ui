@@ -9,9 +9,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { ReportProject } from './reportProject';
+import { ReportUser } from './reportUser';
 
 
-export interface UserOrganization {
-    userId: string;
-    organizationId: string;
+export interface ReportOrganization {
+    projects?: Array<ReportProject>;
+    users?: Array<ReportUser>;
+    totalHours?: number;
 }
