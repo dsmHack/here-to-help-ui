@@ -23,6 +23,7 @@ import { Organization } from '../model/organization';
 import { Project } from '../model/project';
 import { ReportOrganization } from '../model/reportOrganization';
 import { User } from '../model/user';
+import { UserProject } from '../model/userProject';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -59,6 +60,94 @@ export class DefaultService {
         return false;
     }
 
+
+    /**
+     * sending login code
+     * 
+     * @param body user email address
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public loginSendCodePost(body: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public loginSendCodePost(body: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public loginSendCodePost(body: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public loginSendCodePost(body: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling loginSendCodePost.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+        let httpContentTypeSelected:string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set("Content-Type", httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<any>(`${this.basePath}/login/sendCode`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * verifying security token
+     * 
+     * @param body secruity token
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public loginVerifyCodePost(body: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public loginVerifyCodePost(body: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public loginVerifyCodePost(body: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public loginVerifyCodePost(body: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling loginVerifyCodePost.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+        let httpContentTypeSelected:string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set("Content-Type", httpContentTypeSelected);
+        }
+
+        return this.httpClient.post<any>(`${this.basePath}/login/verifyCode`,
+            body,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
 
     /**
      * 
@@ -293,6 +382,86 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
+    public projectsProjectIdCheckInsPost(projectId: string, observe?: 'body', reportProgress?: boolean): Observable<CheckIn>;
+    public projectsProjectIdCheckInsPost(projectId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CheckIn>>;
+    public projectsProjectIdCheckInsPost(projectId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CheckIn>>;
+    public projectsProjectIdCheckInsPost(projectId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (projectId === null || projectId === undefined) {
+            throw new Error('Required parameter projectId was null or undefined when calling projectsProjectIdCheckInsPost.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.post<CheckIn>(`${this.basePath}/projects/${encodeURIComponent(String(projectId))}/check-ins`,
+            null,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * Updates the check-in with an end time
+     * @param projectId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public projectsProjectIdCheckInsPut(projectId: string, observe?: 'body', reportProgress?: boolean): Observable<CheckIn>;
+    public projectsProjectIdCheckInsPut(projectId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<CheckIn>>;
+    public projectsProjectIdCheckInsPut(projectId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<CheckIn>>;
+    public projectsProjectIdCheckInsPut(projectId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (projectId === null || projectId === undefined) {
+            throw new Error('Required parameter projectId was null or undefined when calling projectsProjectIdCheckInsPut.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.put<CheckIn>(`${this.basePath}/projects/${encodeURIComponent(String(projectId))}/check-ins`,
+            null,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param projectId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
     public projectsProjectIdGet(projectId: string, observe?: 'body', reportProgress?: boolean): Observable<Project>;
     public projectsProjectIdGet(projectId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Project>>;
     public projectsProjectIdGet(projectId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Project>>;
@@ -316,6 +485,46 @@ export class DefaultService {
         ];
 
         return this.httpClient.get<Project>(`${this.basePath}/projects/${encodeURIComponent(String(projectId))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * 
+     * 
+     * @param projectId 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public projectsProjectIdUserPost(projectId: string, observe?: 'body', reportProgress?: boolean): Observable<UserProject>;
+    public projectsProjectIdUserPost(projectId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserProject>>;
+    public projectsProjectIdUserPost(projectId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserProject>>;
+    public projectsProjectIdUserPost(projectId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (projectId === null || projectId === undefined) {
+            throw new Error('Required parameter projectId was null or undefined when calling projectsProjectIdUserPost.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+        ];
+        let httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set("Accept", httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        return this.httpClient.post<UserProject>(`${this.basePath}/projects/${encodeURIComponent(String(projectId))}/user`,
+            null,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
