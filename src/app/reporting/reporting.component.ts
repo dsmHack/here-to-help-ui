@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DefaultService, ReportOrganization} from '../../swagger';
 
 @Component({
   selector: 'app-reporting',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportingComponent implements OnInit {
 
-  constructor() { }
+  reportData: ReportOrganization;
+
+  constructor(private apiService: DefaultService) { }
 
   ngOnInit() {
+
+    this.apiService.organizationsOrganizationIdReportsGet('1').subscribe(x => this.reportData = x);
+
   }
 
 }
