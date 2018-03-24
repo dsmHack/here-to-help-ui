@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  loginStatus: number;
+  loginEmail: string;
 
   ngOnInit() {
+    this.loginStatus = 0;
   }
 
+  clickLogin() {
+    this.loginStatus = 1;
+  }
+
+  sendMagicLink() {
+    this.loginStatus = 2;
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 2500);
+  }
 }
