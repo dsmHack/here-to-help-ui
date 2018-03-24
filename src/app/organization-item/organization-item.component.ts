@@ -13,6 +13,9 @@ export class OrganizationItemComponent implements OnInit {
   @Input()
   org: Organization;
 
+  @Input()
+  showProfile: boolean;
+
   ngOnInit() {
   }
 

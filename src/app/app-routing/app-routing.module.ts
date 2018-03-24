@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
 import {OrganizationComponent} from '../organization/organization.component';
 import {HomeComponent} from '../home/home.component';
+import {OrganizationProfileComponent} from '../organization-profile/organization-profile.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'orgs',
     component: OrganizationComponent
+  },
+  {
+    path: 'org-profile/:guid',
+    component: OrganizationProfileComponent
   }
 
 ];

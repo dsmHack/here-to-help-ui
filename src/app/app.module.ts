@@ -11,6 +11,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { OrganizationItemComponent } from './organization-item/organization-item.component';
+import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,11 +24,13 @@ import { OrganizationItemComponent } from './organization-item/organization-item
     OrganizationItemComponent,
     NavbarComponent,
     FooterComponent,
-    ProjectItemComponent
+    ProjectItemComponent,
+    OrganizationProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgbModule.forRoot()
   ],
   providers: [],
