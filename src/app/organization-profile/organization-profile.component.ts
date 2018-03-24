@@ -10,7 +10,7 @@ import {DefaultService} from '../../swagger';
   providers: [DefaultService]
 })
 export class OrganizationProfileComponent implements OnInit {
-  org = <Organization>{};
+  org: Organization
 
   constructor(private route: ActivatedRoute, private service: DefaultService) {
     this.service.organizationsGet().subscribe(x => this.org = x[0]);
