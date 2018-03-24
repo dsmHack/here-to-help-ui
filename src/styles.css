@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+.btn-primary {
+  background-color: #B4C86D;
+  border-color: #B4C86D;
+}
+
+.btn-primary:disabled {
+  background-color: #B4C86D;
+  border-color: #B4C86D;
+}
+
+.btn-info {
+  background-color: #42A6B8;
+  border-color: #42A6B8;
+}
+
+.btn-info:disabled {
+  background-color: #42A6B8;
+  border-color: #42A6B8;
+}
+
+.btn-success {
+   background-color: #F48432;
+   border-color: #F48432;
+ }
+
+.btn-success:disabled {
+  background-color: #F48432;
+  border-color: #F48432;
+}
+
+.btn-warning {
+  background-color: #707070;
+  border-color: #707070;
+}
+
+.btn-warning:disabled {
+  background-color: #707070;
+  border-color: #707070;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+  
+body {
+  padding-bottom: 60px;
+}
