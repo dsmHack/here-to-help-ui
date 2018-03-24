@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectItemComponent } from './project-item/project-item.component';
 import { OrganizationItemComponent } from './organization-item/organization-item.component';
+import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
 import { OrganizationSelectedItemComponent } from './organization-selected-item/organization-selected-item.component';
 import { CheckInOutWidgetComponent } from './check-in-out-widget/check-in-out-widget.component';
 import { LoginConfirmComponent } from './login-confirm/login-confirm.component';
@@ -33,6 +34,7 @@ import { UserAdminRecordComponent } from './user-admin-record/user-admin-record.
     NavbarComponent,
     FooterComponent,
     ProjectItemComponent,
+    OrganizationProfileComponent,
     OrganizationSelectedItemComponent,
     CheckInOutWidgetComponent,
     LoginConfirmComponent,

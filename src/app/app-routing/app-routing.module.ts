@@ -4,10 +4,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from '../login/login.component';
 import {OrganizationComponent} from '../organization/organization.component';
 import {HomeComponent} from '../home/home.component';
-import {LoginConfirmComponent} from "../login-confirm/login-confirm.component";
-import {ReportingComponent} from "../reporting/reporting.component";
-import {UserAdminComponent} from "../user-admin/user-admin.component";
-import {UserAdminRecordComponent} from "../user-admin-record/user-admin-record.component";
+import {OrganizationProfileComponent} from '../organization-profile/organization-profile.component';
+import {LoginConfirmComponent} from '../login-confirm/login-confirm.component';
+import {ReportingComponent} from '../reporting/reporting.component';
+import {UserAdminComponent} from '../user-admin/user-admin.component';
+import {UserAdminRecordComponent} from '../user-admin-record/user-admin-record.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'orgs',
     component: OrganizationComponent
+  },
+  {
+    path: 'org-profile',
+    component: OrganizationProfileComponent
   },
   {
     path: 'reporting',
