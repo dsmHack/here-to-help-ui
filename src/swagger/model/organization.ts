@@ -21,4 +21,8 @@ export interface Organization {
     facebookUrl?: string;
     twitterUrl?: string;
     instagramUrl?: string;
+    address1?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
 }
