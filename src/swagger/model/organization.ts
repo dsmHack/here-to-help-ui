@@ -1,5 +1,5 @@
 /**
- * 
+ * Here to Help
  * This is a restful web service used to log hours for non-profits to submit for money grants.
  *
  * OpenAPI spec version: 1.0.0
@@ -15,8 +15,8 @@ export interface Organization {
     organizationId: string;
     name: string;
     description: string;
-    email: string;
-    phoneNumber: string;
+    email?: string;
+    phoneNumber?: string;
     websiteUrl?: string;
     facebookUrl?: string;
     twitterUrl?: string;
