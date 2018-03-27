@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Project} from '../../swagger';
+import {DefaultService, Project} from "../../swagger";
 
 @Component({
   selector: 'app-check-in-out-widget',
@@ -8,7 +8,7 @@ import {Project} from '../../swagger';
 })
 export class CheckInOutWidgetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService: DefaultService) { }
 
   @Input()
   project: Project;
@@ -20,6 +20,11 @@ export class CheckInOutWidgetComponent implements OnInit {
   checkOutDate: Date;
 
   ngOnInit() {
+    const checkIn = localStorage.getItem('checkInDate');
+    if (checkIn) {
+      this.checkInDate = new Date(checkIn);
+
+    }
   }
 
   checkIn() {
@@ -29,6 +34,9 @@ export class CheckInOutWidgetComponent implements OnInit {
     console.log(now);
 
     this.checkInDate = new Date(now);
+
+    localStorage.setItem('checkInDate', this.checkInDate.toISOString());
+    localStorage.setItem('projectId', this.project.projectId);
   }
 
   switchProjects() {
@@ -42,6 +50,9 @@ export class CheckInOutWidgetComponent implements OnInit {
     console.log(now);
 
     this.checkOutDate = new Date(now);
+
+    localStorage.removeItem('checkInDate');
+    localStorage.removeItem('projectId');
 
     this.switchProjects();
   }

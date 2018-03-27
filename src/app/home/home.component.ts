@@ -36,6 +36,11 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['orgs']);
     }
 
+    const projectId = localStorage.getItem('projectId');
+    if (projectId) {
+      this.apiService.projectsProjectIdGet(projectId).subscribe(x => this.setSelectedProject(x));
+    }
+
     this.apiService.organizationsOrganizationIdGet(this.organizationId).subscribe(x => this.organization = x);
     this.apiService.projectsGet().subscribe(x => this.projects = x);
   }
