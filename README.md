@@ -22,7 +22,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Development server in Docker
+## Build w/ Docker
+
+Run `docker run --rm -it -v $(pwd):/src:rw mkenney/npm:latest npm install`
+
+## Run w/ Docker
 
 Run `docker run -it --rm -w /app -v $(pwd):/app -p 4200:4200 alexsuch/angular-cli:6.0.0-beta.7 ng serve --host 0.0.0.0`
 
