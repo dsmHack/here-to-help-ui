@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "swagger-codegen": "swagger-codegen generate -i https://raw.githubusercontent.com/dsmHack/2018_team_1_api/master/swagger.yaml -l typescript-angular -o $(pwd)/src/swagger",
+    "swagger-codegen": "swagger-codegen generate -i localhost:8080/v2/api-docs -l typescript-angular -o $(pwd)/src/swagger",
     "swagger-codegen:docker": "rm -rf $(pwd)/src/swagger/* && docker run -v $(pwd)/src/swagger:/swagger swaggerapi/swagger-codegen-cli generate -i localhost:8080/v2/api-docs -l typescript-angular -o /swagger"
   },
   "private": true,
