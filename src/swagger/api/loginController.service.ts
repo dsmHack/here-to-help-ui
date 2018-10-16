@@ -138,7 +138,7 @@ export class LoginControllerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<User>(`${this.basePath}/login/verifyCode`,
+        return this.httpClient.post<User>(`${this.basePath}/login`,
             securityToken,
             {
                 withCredentials: this.configuration.withCredentials,

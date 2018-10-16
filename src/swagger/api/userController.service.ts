@@ -179,16 +179,16 @@ export class UserControllerService {
     /**
      * getUserById
      * 
-     * @param userId userId
+     * @param userGuid userGuid
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getUserByIdUsingGET(userId: string, observe?: 'body', reportProgress?: boolean): Observable<User>;
-    public getUserByIdUsingGET(userId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<User>>;
-    public getUserByIdUsingGET(userId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<User>>;
-    public getUserByIdUsingGET(userId: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (userId === null || userId === undefined) {
-            throw new Error('Required parameter userId was null or undefined when calling getUserByIdUsingGET.');
+    public getUserByIdUsingGET(userGuid: string, observe?: 'body', reportProgress?: boolean): Observable<User>;
+    public getUserByIdUsingGET(userGuid: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<User>>;
+    public getUserByIdUsingGET(userGuid: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<User>>;
+    public getUserByIdUsingGET(userGuid: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+        if (userGuid === null || userGuid === undefined) {
+            throw new Error('Required parameter userGuid was null or undefined when calling getUserByIdUsingGET.');
         }
 
         let headers = this.defaultHeaders;
@@ -207,7 +207,7 @@ export class UserControllerService {
             'application/json'
         ];
 
-        return this.httpClient.get<User>(`${this.basePath}/users/${encodeURIComponent(String(userId))}`,
+        return this.httpClient.get<User>(`${this.basePath}/users/${encodeURIComponent(String(userGuid))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
