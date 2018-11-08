@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import { LoginControllerService } from '../../swagger';
 
 @Component({
   selector: 'app-login-confirm',
@@ -12,7 +13,8 @@ export class LoginConfirmComponent implements OnInit {
   token: string;
 
   constructor(private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private loginService: LoginControllerService) {
     this.route.params.subscribe(params => {
       this.token = params['token'];
 
@@ -28,6 +30,15 @@ export class LoginConfirmComponent implements OnInit {
 
   verifyToken() {
     this.loginStatus = 1;
+
+    this.loginService.verifyCodeUsingPOST(this.token).subscribe(x => {
+      this.loginStatus = 2;
+      console.log(x);
+      this.goToOrgSelect();
+    }, x => {
+      this.loginStatus = 3;
+    });
+
     setTimeout(() => {
       if (this.token === '12345') {
         this.loginStatus = 2;
