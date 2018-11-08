@@ -3,14 +3,22 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Configuration } from './configuration';
 
-import { DefaultService } from './api/default.service';
+import { LoginControllerService } from './api/loginController.service';
+import { OrganizationControllerService } from './api/organizationController.service';
+import { ProjectControllerService } from './api/projectController.service';
+import { ReportControllerService } from './api/reportController.service';
+import { UserControllerService } from './api/userController.service';
 
 @NgModule({
   imports:      [ CommonModule, HttpClientModule ],
   declarations: [],
   exports:      [],
   providers: [
-    DefaultService ]
+    LoginControllerService,
+    OrganizationControllerService,
+    ProjectControllerService,
+    ReportControllerService,
+    UserControllerService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {

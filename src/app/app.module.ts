@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ApiModule, BASE_PATH} from '../swagger';
+import { ApiModule, BASE_PATH, Configuration, ConfigurationParameters } from '../swagger';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -18,11 +18,18 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
 import { OrganizationSelectedItemComponent } from './organization-selected-item/organization-selected-item.component';
 import { CheckInOutWidgetComponent } from './check-in-out-widget/check-in-out-widget.component';
 import { LoginConfirmComponent } from './login-confirm/login-confirm.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import { ReportingComponent } from './reporting/reporting.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { UserAdminRecordComponent } from './user-admin-record/user-admin-record.component';
 
+export function apiConfigFactory (): Configuration {
+  const params: ConfigurationParameters = {
+    basePath: environment.API_BASE_PATH,
+    apiKeys: {Authorization: `Bearer ${localStorage.getItem('access_token')}`}
+  };
+  return new Configuration(params);
+}
 
 @NgModule({
   declarations: [
@@ -45,7 +52,7 @@ import { UserAdminRecordComponent } from './user-admin-record/user-admin-record.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
+    NgbModule,
     ApiModule,
     HttpClientModule,
     FormsModule
