@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ApiModule, BASE_PATH} from '../swagger';
+import { ApiModule, BASE_PATH, Configuration, ConfigurationParameters } from '../swagger';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -23,6 +23,13 @@ import { ReportingComponent } from './reporting/reporting.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { UserAdminRecordComponent } from './user-admin-record/user-admin-record.component';
 
+export function apiConfigFactory (): Configuration {
+  const params: ConfigurationParameters = {
+    basePath: environment.API_BASE_PATH,
+    apiKeys: {Authorization: `Bearer ${localStorage.getItem('access_token')}`}
+  };
+  return new Configuration(params);
+}
 
 @NgModule({
   declarations: [
