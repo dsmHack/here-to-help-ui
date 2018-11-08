@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DefaultService, Organization} from '../../swagger';
+import {OrganizationControllerService, Organization} from '../../swagger';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,18 +11,18 @@ export class OrganizationComponent implements OnInit {
 
   orgs: Array<Organization>;
 
-  constructor(private apiService: DefaultService,
+  constructor(private organizationService: OrganizationControllerService,
               private router: Router) {
 
     localStorage.removeItem('organizationId');
-    this.apiService.organizationsGet().subscribe(x => this.orgs = x);
+    this.organizationService.getAllOrganizationsUsingGET().subscribe(x => this.orgs = x);
   }
 
   ngOnInit() {
   }
 
   selectOrg(org: Organization) {
-    localStorage.setItem('organizationId', org.organizationId);
+    localStorage.setItem('organizationId', org.orgGuid);
     this.router.navigate(['']);
   }
 }

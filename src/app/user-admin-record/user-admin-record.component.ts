@@ -24,23 +24,11 @@ export class UserAdminRecordComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = {
-      firstName: null,
-      lastName: null,
-      userId: null,
-      role: null,
-      email: null
-    };
+
   }
 
   getUser() {
-    this.user = {
-      firstName: 'John',
-      lastName: 'Doe',
-      userId: '123',
-      role: 'Developer',
-      email: 'mycoolemail@email.com'
-    };
+
   }
 
   saveUser() {
