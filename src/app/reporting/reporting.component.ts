@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DefaultService, Organization, ReportOrganization} from "../../swagger";
-import {Router} from "@angular/router";
+import {DefaultService, Organization, ReportOrganization} from '../../swagger';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-reporting',

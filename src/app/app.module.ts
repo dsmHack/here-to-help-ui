@@ -18,7 +18,7 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
 import { OrganizationSelectedItemComponent } from './organization-selected-item/organization-selected-item.component';
 import { CheckInOutWidgetComponent } from './check-in-out-widget/check-in-out-widget.component';
 import { LoginConfirmComponent } from './login-confirm/login-confirm.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import { ReportingComponent } from './reporting/reporting.component';
 import { UserAdminComponent } from './user-admin/user-admin.component';
 import { UserAdminRecordComponent } from './user-admin-record/user-admin-record.component';
@@ -45,7 +45,7 @@ import { UserAdminRecordComponent } from './user-admin-record/user-admin-record.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
+    NgbModule,
     ApiModule,
     HttpClientModule,
     FormsModule

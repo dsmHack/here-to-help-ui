@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 import {Organization} from '../../swagger';
 import {DefaultService} from '../../swagger';
 
@@ -11,7 +11,7 @@ import {DefaultService} from '../../swagger';
 })
 export class OrganizationProfileComponent implements OnInit {
   organizationId: string;
-  org: Organization
+  org: Organization;
 
   constructor(private route: ActivatedRoute,
               private apiService: DefaultService,

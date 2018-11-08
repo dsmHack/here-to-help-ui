@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Organization, Project, User} from '../../swagger';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
