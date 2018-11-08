@@ -11,8 +11,7 @@
  */
 
 
-export interface ReportProject {
-    name?: string;
-    projectGuid?: string;
-    totalHours?: number;
+export interface MyKey {
+    projGuid?: string;
+    userGuid?: string;
 }
