@@ -1,4 +1,4 @@
-# HereToHelp-UI
+# HereToHelp-ui
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
@@ -21,6 +21,14 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Build w/ Docker
+
+Run `docker run --rm -it -v $(pwd):/src:rw mkenney/npm:latest npm install`
+
+## Run w/ Docker
+
+Run `docker run -it --rm -w /app -v $(pwd):/app -p 4200:4200 alexsuch/angular-cli:6.0.0-beta.7 ng serve --host 0.0.0.0`
 
 ## Further help
 
